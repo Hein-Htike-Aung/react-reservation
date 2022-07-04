@@ -1,0 +1,28 @@
+### Create Room
+POST http://localhost:8800/api/rooms/62c29ee07c83868a7e486813
+Content-Type: application/json
+
+{
+    "title": "Best Room in the city 2",
+    "price": 3000,
+    "maxPeople": 4,
+    "desc": "hotel description",
+    "roomNumbers": [{"number": "001"}, {"number": "002"}]
+}
+
+### Update Room
+PATCH http://localhost:8800/api/rooms/62c2a8bbda9e1edc35257bde
+Content-Type: application/json
+
+{
+    "title": "Room Jane"    
+}
+
+### Delete Room
+Delete http://localhost:8800/api/rooms/62c2a8c4da9e1edc35257be0
+
+### GET Room by id
+GET http://localhost:8800/api/rooms/62c2a8c4da9e1edc35257be0
+
+### get all Rooms
+GET http://localhost:8800/api/rooms

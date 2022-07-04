@@ -1,0 +1,34 @@
+### Create Hotel
+POST http://localhost:8800/api/hotels
+Content-Type: application/json
+
+{
+    "name": "Hotel karina",
+    "type": "hotel",
+    "city": "london",
+    "address": "somewhere",
+    "distance": "600",
+    "title": "Best Hotel in the london",
+    "desc": "karina hotel description",
+    "cheapestPrice": 100
+}
+
+### Update Hotel
+PATCH http://localhost:8800/api/hotels/62c29ee07c83868a7e486813
+Content-Type: application/json
+
+{
+    "name": "Hotel Jane"    
+}
+
+### Delete Hotel
+Delete http://localhost:8800/api/hotels/62c2a151b168f13f2008a026
+
+### GET Hotel by id
+GET http://localhost:8800/api/hotels/find/62c2a151b168f13f2008a026
+
+### get all Hotels
+GET http://localhost:8800/api/hotels
+
+### get Hotels countByCity
+GET http://localhost:8800/api/hotels/countByCity?cities=london,madrid,berlin

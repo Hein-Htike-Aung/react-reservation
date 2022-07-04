@@ -1,0 +1,35 @@
+### Register User
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "test john",
+    "password": "admin",
+    "email": "test john@gmail.com"
+}
+
+### Login User
+POST http://localhost:8800/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "john",
+    "password": "admin"
+}
+
+### Update User
+PATCH http://localhost:8800/api/users/62c2da3b7a86040694daff2e
+Content-Type: application/json
+
+{
+    "username": "Updated"    
+}
+
+### Delete User
+Delete http://localhost:8800/api/users/62c2da3b7a86040694daff2e
+
+### GET User by id
+GET http://localhost:8800/api/users/62c2da3b7a86040694daff2e
+
+### get all Users
+GET http://localhost:8800/api/users
