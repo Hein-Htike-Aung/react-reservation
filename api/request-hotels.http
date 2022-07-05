@@ -25,10 +25,26 @@ Content-Type: application/json
 Delete http://localhost:8800/api/hotels/62c2a151b168f13f2008a026
 
 ### GET Hotel by id
-GET http://localhost:8800/api/hotels/find/62c2a151b168f13f2008a026
+GET http://localhost:8800/api/hotels/find/62c29ee07c83868a7e486813
 
 ### get all Hotels
 GET http://localhost:8800/api/hotels
 
 ### get Hotels countByCity
 GET http://localhost:8800/api/hotels/countByCity?cities=london,madrid,berlin
+
+### get Hotel Count by type
+GET http://localhost:8800/api/hotels/countByType
+
+### get featured true Hotel
+GET http://localhost:8800/api/hotels?featured=true&limit=2&min=10&max=200
+
+
+### get Hotels by city
+GET http://localhost:8800/api/hotels?city=berlin
+
+### get Rooms by Hotel Id
+GET http://localhost:8800/api/hotels/room/by-hotel/62c29ee07c83868a7e486813
+
+
+

@@ -3,7 +3,7 @@ POST http://localhost:8800/api/rooms/62c29ee07c83868a7e486813
 Content-Type: application/json
 
 {
-    "title": "Best Room in the city 2",
+    "title": "Best second Room in the city 2",
     "price": 3000,
     "maxPeople": 4,
     "desc": "hotel description",

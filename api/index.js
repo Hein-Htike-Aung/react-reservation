@@ -9,6 +9,7 @@ import hotelsRoute from './routes/hotels.route.js';
 import roomsRoute from './routes/rooms.route.js';
 import usersRoute from './routes/users.route.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import cors from 'cors';
 
 const app = express();
 dotenv.config();
@@ -28,6 +29,7 @@ mongoose.connection.on('disconnected', () => {
 });
 
 /* Middlewares */
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 

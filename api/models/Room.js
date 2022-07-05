@@ -19,6 +19,7 @@ const RoomSchema = new mongoose.Schema(
 			required: true,
 		},
 		roomNumbers: [
+			// _id will be automitacally generated for this obj
 			{
 				number: Number,
 				unavailableDates: {
