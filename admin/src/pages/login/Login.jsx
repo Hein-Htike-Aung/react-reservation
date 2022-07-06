@@ -1,10 +1,69 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 import './login.scss';
 
 const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+	const [credentail, setCredential] = useState({
+		username: '',
+		password: '',
+	});
 
-export default Login
+	const { loading, error, dispatch } = useContext(AuthContext);
+	const navigate = useNavigate();
+
+	const handleChange = (e) => {
+		setCredential((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+	};
+
+	const handleLogin = async (e) => {
+		e.preventDefault();
+
+		dispatch({ type: 'LOGIN_START' });
+
+		try {
+			const res = await axios.post('/auth/login', credentail);
+
+			navigate('/');
+
+			if (res.data.isAdmin) {
+				dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.details });
+			} else {
+				dispatch({ type: 'LOGIN_FAILURE', payload: error.response.data });
+			}
+		} catch (error) {
+			dispatch({
+				type: 'LOGIN_FAILURE',
+				payload: { message: 'You are not allowed' },
+			});
+		}
+	};
+
+	return (
+		<div className='login'>
+			<div className='lContainer'>
+				<input
+					type='text'
+					placeholder='username'
+					id='username'
+					onChange={handleChange}
+					className='lInput'
+				/>
+				<input
+					type='password'
+					placeholder='password'
+					id='password'
+					onChange={handleChange}
+					className='lInput'
+				/>
+				<button disabled={loading} onClick={handleLogin} className='lButton'>
+					Login
+				</button>
+				{error && <span>{error.message}</span>}
+			</div>
+		</div>
+	);
+};
+
+export default Login;

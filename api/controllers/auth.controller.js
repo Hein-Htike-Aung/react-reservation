@@ -10,8 +10,7 @@ export const register = async (req, res, next) => {
 		const password = bcrypt.hashSync(req.body.password, salt);
 
 		const newUser = new User({
-			username: req.body.username,
-			email: req.body.email,
+			...req.body,
 			password,
 		});
 
@@ -43,10 +42,12 @@ export const login = async (req, res, next) => {
 			process.env.JWT_SECRET,
 		);
 
+		const { password, isAdmin, ...others } = user._doc;
+
 		res
 			.cookie('access_token', token, { httpOnly: true })
 			.status(201)
-			.json(_.omit(user.toJSON(), 'password', 'isAdmin'));
+			.json({ details: { ...others }, isAdmin });
 	} catch (error) {
 		next(error);
 	}

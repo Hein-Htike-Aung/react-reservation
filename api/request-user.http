@@ -3,9 +3,12 @@ POST http://localhost:8800/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "test john",
+    "username": "john4",
     "password": "admin",
-    "email": "test john@gmail.com"
+    "email": "john4@gmail.com",
+    "country": "Japan",
+    "city": "Tokyo",
+    "phone": "+1 3434 3434"
 }
 
 ### Login User

@@ -1,13 +1,20 @@
 export const userColumns = [
-	{ field: 'id', headerName: 'ID', width: 70 },
+	{ field: '_id', headerName: 'ID', width: 260 },
 	{
 		field: 'user',
 		headerName: 'User',
-		width: 230,
+		width: 200,
 		renderCell: (params) => {
 			return (
 				<div className='cellWithImg'>
-					<img className='cellImg' src={params.row.img} alt='avatar' />
+					<img
+						className='cellImg'
+						src={
+							params.row.img ||
+							'https://simg.nicepng.com/png/small/73-730154_open-default-profile-picture-png.png'
+						}
+						alt=''
+					/>
 					{params.row.username}
 				</div>
 			);
@@ -16,25 +23,82 @@ export const userColumns = [
 	{
 		field: 'email',
 		headerName: 'Email',
-		width: 230,
+		width: 200,
 	},
-
 	{
-		field: 'age',
-		headerName: 'Age',
+		field: 'country',
+		headerName: 'Country',
+		width: 200,
+	},
+	{
+		field: 'city',
+		headerName: 'City',
+		width: 200,
+	},
+	{
+		field: 'phone',
+		headerName: 'Phone',
+		width: 200,
+	},
+	// {
+	// 	field: 'status',
+	// 	headerName: 'Status',
+	// 	width: 160,
+	// 	renderCell: (params) => {
+	// 		return (
+	// 			<div className={`cellWithStatus ${params.row.status}`}>
+	// 				{params.row.status}
+	// 			</div>
+	// 		);
+	// 	},
+	// },
+];
+
+export const hotelColumns = [
+	{ field: '_id', headerName: 'ID', width: 260 },
+	{
+		field: 'name',
+		headerName: 'Name',
+		width: 150,
+	},
+	{
+		field: 'type',
+		headerName: 'Type',
 		width: 100,
 	},
 	{
-		field: 'status',
-		headerName: 'Status',
-		width: 160,
-		renderCell: (params) => {
-			return (
-				<div className={`cellWithStatus ${params.row.status}`}>
-					{params.row.status}
-				</div>
-			);
-		},
+		field: 'title',
+		headerName: 'Title',
+		width: 230,
+	},
+	{
+		field: 'city',
+		headerName: 'City',
+		width: 100,
+	},
+];
+
+export const roomColumns = [
+	{ field: '_id', headerName: 'ID', width: 260 },
+	{
+		field: 'title',
+		headerName: 'Title',
+		width: 230,
+	},
+	{
+		field: 'desc',
+		headerName: 'Description',
+		width: 200,
+	},
+	{
+		field: 'price',
+		headerName: 'Price',
+		width: 100,
+	},
+	{
+		field: 'maxPeople',
+		headerName: 'Max People',
+		width: 100,
 	},
 ];
 

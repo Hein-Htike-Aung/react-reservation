@@ -62,8 +62,9 @@
         }
     }
 
-    input {
+    input, select, textarea {
         background-color:transparent;
+        color: gray;
     }
 
 }

@@ -15,10 +15,8 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { DarkModeContext } from '../../context/darkModeReducer';
 
-
 const Sidebar = () => {
-
-	const {dispatch} = useContext(DarkModeContext);
+	const { dispatch } = useContext(DarkModeContext);
 
 	return (
 		<div className='sidebar'>
@@ -42,18 +40,18 @@ const Sidebar = () => {
 							<span>Users</span>
 						</li>
 					</Link>
-
-					<Link to={'/products'} className='link'>
+					<Link to={'/hotels'} className='link'>
 						<li>
 							<StoreIcon className='icon' />
-							<span>Products</span>
+							<span>Hotels</span>
 						</li>
 					</Link>
-
-					<li>
-						<CreditCardIcon className='icon' />
-						<span>Orders</span>
-					</li>
+					<Link to={'/rooms'} className='link'>
+						<li>
+							<CreditCardIcon className='icon' />
+							<span>Rooms</span>
+						</li>
+					</Link>
 					<li>
 						<LocalShippingIcon className='icon' />
 						<span>Delivery</span>
